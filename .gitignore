@@ -1,0 +1,6 @@
+*.iml
+target/
+*.ipr
+*.iws
+*.pdf
+
