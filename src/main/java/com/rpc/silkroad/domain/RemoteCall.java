@@ -1,4 +1,4 @@
-package com.rpc.silkroad;
+package com.rpc.silkroad.domain;
 
 import java.io.Serializable;
 
