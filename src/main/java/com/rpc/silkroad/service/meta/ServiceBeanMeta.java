@@ -3,7 +3,9 @@ package com.rpc.silkroad.service.meta;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by frio on 2017/9/21.
@@ -11,20 +13,25 @@ import java.util.List;
 public class ServiceBeanMeta {
     private Class rawClass;
     private String typeName;
-    private List<ServiceBeanMeta> actualTypeArgumentArray = new ArrayList<>();
-
+    private boolean isPrimitive;
     public ServiceBeanMeta(ParameterizedType parameterizedType){
         this.typeName = parameterizedType.getRawType().getTypeName();
         Type[] actualTypeArgs = parameterizedType.getActualTypeArguments();
-        for(int i = 0; i < actualTypeArgs.length; i++){
-            actualTypeArgumentArray.add(new ServiceBeanMeta(actualTypeArgs[i].getClass()));
-        }
+        parseFields(parameterizedType);
         parameterizedType.getActualTypeArguments();
         parameterizedType.getClass().getTypeParameters();
     }
 
-
-    public ServiceBeanMeta(Class cls){
+    private void parseFields(ParameterizedType parameterizedType) {
 
     }
+
+
+    public ServiceBeanMeta(Class cls){
+        isPrimitive = true;
+        typeName = cls.getTypeName();
+        rawClass = cls;
+    }
+
+
 }
