@@ -94,5 +94,44 @@ public class ServiceBeanMeta {
         }
     }
 
+    public Class getRawClass() {
+        return rawClass;
+    }
+
+    public void setRawClass(Class rawClass) {
+        this.rawClass = rawClass;
+    }
+
+    public ServiceBeanMeta getTypeClass() {
+        return typeClass;
+    }
+
+    public void setTypeClass(ServiceBeanMeta typeClass) {
+        this.typeClass = typeClass;
+    }
+
+    public String getRawTypeName() {
+        return rawTypeName;
+    }
+
+    public void setRawTypeName(String rawTypeName) {
+        this.rawTypeName = rawTypeName;
+    }
+
+    public boolean isPrimitive() {
+        return isPrimitive;
+    }
+
+    public void setPrimitive(boolean primitive) {
+        isPrimitive = primitive;
+    }
+
+    public List<ServiceBeanMeta> getFields() {
+        return fields;
+    }
+
+    public void setFields(List<ServiceBeanMeta> fields) {
+        this.fields = fields;
+    }
 
 }

@@ -26,4 +26,20 @@ public class ServiceFunction {
             this.returnType = new ServiceBeanMeta((Class)type);
         }
     }
+
+    public ServiceParams getServiceParams() {
+        return serviceParams;
+    }
+
+    public void setServiceParams(ServiceParams serviceParams) {
+        this.serviceParams = serviceParams;
+    }
+
+    public ServiceBeanMeta getReturnType() {
+        return returnType;
+    }
+
+    public void setReturnType(ServiceBeanMeta returnType) {
+        this.returnType = returnType;
+    }
 }

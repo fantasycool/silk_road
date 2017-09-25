@@ -44,11 +44,35 @@ public class ServiceParams {
         });
     }
 
-    public void test(){
-
+    public List<Class> getParamsClass() {
+        return paramsClass;
     }
-    public static void main(String[] args) {
-        Method[] methods = ServiceParams.class.getMethods();
-        System.out.println(JSON.toJSONString(methods[0].getDeclaringClass().getTypeParameters()));
+
+    public void setParamsClass(List<Class> paramsClass) {
+        this.paramsClass = paramsClass;
+    }
+
+    public List<String> getName() {
+        return name;
+    }
+
+    public void setName(List<String> name) {
+        this.name = name;
+    }
+
+    public Class<?> getDeclaringClass() {
+        return declaringClass;
+    }
+
+    public void setDeclaringClass(Class<?> declaringClass) {
+        this.declaringClass = declaringClass;
+    }
+
+    public List<ServiceBeanMeta> getParams() {
+        return params;
+    }
+
+    public void setParams(List<ServiceBeanMeta> params) {
+        this.params = params;
     }
 }

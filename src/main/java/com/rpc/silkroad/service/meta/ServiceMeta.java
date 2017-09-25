@@ -37,4 +37,27 @@ public class ServiceMeta {
         return serviceFunctionList;
     }
 
+    public List<ServiceFunction> getServiceFunctionList() {
+        return serviceFunctionList;
+    }
+
+    public void setServiceFunctionList(List<ServiceFunction> serviceFunctionList) {
+        this.serviceFunctionList = serviceFunctionList;
+    }
+
+    public String getServiceName() {
+        return serviceName;
+    }
+
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
+
+    public String getServiceVersion() {
+        return serviceVersion;
+    }
+
+    public void setServiceVersion(String serviceVersion) {
+        this.serviceVersion = serviceVersion;
+    }
 }
