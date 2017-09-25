@@ -23,7 +23,7 @@ public class ServiceParams {
      */
     private List<String> name;
     private Class<?> declaringClass;
-    private List<ServiceBeanMeta> params;
+    private List<ServiceBeanMeta> params = new ArrayList<>();
 
     public ServiceParams(Method method) {
         declaringClass = method.getDeclaringClass();
@@ -37,7 +37,7 @@ public class ServiceParams {
             }else if(p instanceof TypeVariable){
                 throw new RpcException("rpc service interface should not have TypeVariable type");
             }else if(p instanceof Class){
-                params.add(new ServiceBeanMeta(p.getClass()));
+                params.add(new ServiceBeanMeta((Class)p));
             }else{
                 throw new RpcException("rpc service param analyze failed!");
             }

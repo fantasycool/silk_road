@@ -10,7 +10,9 @@ import java.util.List;
  * Created by frio on 2017/9/19.
  */
 public class ServiceMeta {
-    private List<ServiceFunction> serviceFunctionList;
+    private List<ServiceFunction> serviceFunctionList = new ArrayList<>();
+    private String serviceName;
+    private String serviceVersion;
 
     /**
      * Rpc Service is always a interface, we analyze this interface to get Service meta info
@@ -23,16 +25,16 @@ public class ServiceMeta {
 
     /**
      * get ServiceFunction from serviceInterface
+     *
      * @param serviceInterface
      * @return
      */
     private List<ServiceFunction> anlyzeGetFunctionList(Class<?> serviceInterface) {
-        List<ServiceFunction> serviceFunctions = new ArrayList<>(10);
         Method[] interfaceMethods = serviceInterface.getMethods();
         Arrays.stream(interfaceMethods).forEach(method -> {
-            serviceFunctions.add(new ServiceFunction(method));
+            this.serviceFunctionList.add(new ServiceFunction(method));
         });
-        return null;
+        return serviceFunctionList;
     }
 
 }
