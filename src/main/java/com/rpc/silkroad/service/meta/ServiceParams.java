@@ -10,14 +10,10 @@ import java.lang.reflect.TypeVariable;
 import java.util.*;
 
 /**
- * Rpc Service Params
+ * Rpc RpcService Params
  * Created by frio on 2017/9/19.
  */
 public class ServiceParams {
-    /**
-     * Args class list
-     */
-    private List<Class> paramsClass;
     /**
      * Args class name
      */
@@ -27,9 +23,7 @@ public class ServiceParams {
 
     public ServiceParams(Method method) {
         declaringClass = method.getDeclaringClass();
-        TypeVariable[] typeVariable = declaringClass.getTypeParameters();
         Type[] paramGenericTypes = method.getGenericParameterTypes();
-        paramsClass = new ArrayList<>(10);
         Arrays.stream(paramGenericTypes).forEachOrdered(p -> {
             if(p instanceof ParameterizedType){
                 ParameterizedType parameterizedType = (ParameterizedType)p;
@@ -42,14 +36,6 @@ public class ServiceParams {
                 throw new RpcException("rpc service param analyze failed!");
             }
         });
-    }
-
-    public List<Class> getParamsClass() {
-        return paramsClass;
-    }
-
-    public void setParamsClass(List<Class> paramsClass) {
-        this.paramsClass = paramsClass;
     }
 
     public List<String> getName() {

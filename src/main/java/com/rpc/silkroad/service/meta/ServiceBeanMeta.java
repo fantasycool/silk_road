@@ -13,6 +13,9 @@ import java.util.*;
  */
 public class ServiceBeanMeta {
     private Class rawClass;
+    /**
+     * If this bean is ParmeterizedType, this is the generic type
+     */
     private ServiceBeanMeta typeClass;
     private String rawTypeName;
     private boolean isPrimitive = false;
@@ -91,6 +94,8 @@ public class ServiceBeanMeta {
             Arrays.stream(fields).forEach(field -> {
                 this.fields.add(new ServiceBeanMeta(field.getType()));
             });
+        }else{
+            isPrimitive = true;
         }
     }
 
